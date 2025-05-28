@@ -1,0 +1,11 @@
+package rules;
+
+import com.example.drools.model.Loan;
+
+rule "High Amount Loan"
+    when
+        loan : Loan(amount > 5000)
+    then
+        loan.setStatus("Approved");
+        System.out.println("Loan approved: " + loan.getAmount());
+end;

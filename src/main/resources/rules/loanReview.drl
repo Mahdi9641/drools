@@ -1,0 +1,11 @@
+package rules;
+
+import com.example.drools.model.Loan;
+
+rule "Low Amount Loan"
+    when
+        loan : Loan(amount <= 5000)
+    then
+        loan.setStatus("Needs Review");
+        System.out.println("Loan needs review: " + loan.getAmount());
+end;
